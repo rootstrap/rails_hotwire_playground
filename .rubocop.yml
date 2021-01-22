@@ -1,0 +1,25 @@
+inherit_gem:
+  rubocop-rootstrap:
+    - config/rails_edge.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
+AllCops:
+  Exclude:
+    - db/schema.rb
+  SuggestExtensions: false
+
+Layout/LineLength:
+  Exclude:
+    - config/environments/production.rb
+    - config/initializers/devise.rb
+    - config/initializers/pagy.rb
+    - db/migrate/20201228222132_devise_create_admin_users.rb
+    - db/migrate/20201229211322_create_delayed_jobs.rb
+    - db/migrate/20210102175013_devise_create_users.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - lib/tasks/auto_annotate_models.rake
