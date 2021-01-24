@@ -1,0 +1,20 @@
+<%= turbo_frame_tag dom_id column do %>
+  <div class='column'>
+    <%= link_to '', edit_board_column_path(board_id: board_id, id: column.id), class: 'column__delete', method: :delete, data: {confirm: 'Are you sure?'} %>
+    <div class='column__title'>
+      <%= column.name %>
+    </div>
+    <div class='column__body' data-controller="rack">
+      <%= render partial: 'cards/card', collection: column.cards, locals: { board_id: column.board.id, column_id: column.id } %>
+      <div data-rack-target='addForm'>
+        <%= render partial: 'cards/form',
+                   locals: {
+                      klass: 'card',
+                      card: Card.new,
+                      url: board_column_cards_path(board_id: board_id, column_id: column.id)
+                    }
+        %>
+      </div>
+    </div>
+  </div>
+<% end %>

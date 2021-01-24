@@ -1,0 +1,6 @@
+<%= form_with(model: card, url: url, class: klass) do |form| %>
+  <%= form.text_field :name, placeholder: 'Insert a new card', id: 'js-name-value', class: 'card__title card__title--input' %>
+  <%= form.number_field :position, id: 'js-position-value', class: 'hidden' %>
+
+  <%= form.submit 'Send', class: 'card__submit js-card__submit hidden'%>
+<% end %>

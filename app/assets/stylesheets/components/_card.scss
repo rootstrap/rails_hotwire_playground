@@ -1,0 +1,96 @@
+.card {
+  background-color: $white;
+  border-bottom: .1rem solid $gray-200;
+  /* stylelint-disable property-blacklist */
+  border-radius: .3rem;
+  /* stylelint-enable property-blacklist */
+  color: $gray-700;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: .6rem;
+  padding: .65rem .6rem;
+  position: relative;
+  word-wrap: break-word;
+
+  &--nested,
+  .sortable-chosen {
+    border: .1rem solid $gray-200;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+  }
+
+  &:hover {
+    background-color: $gray-50;
+  }
+
+  &__delete {
+    /* stylelint-disable declaration-no-important */
+    border: 0 !important;
+    /* stylelint-enable declaration-no-important */
+    position: absolute;
+    right: .5rem;
+    top: -.3rem;
+    z-index: 100;
+
+    &--disabled {
+      display: none;
+    }
+
+    &::after {
+      content: "x";
+      font-size: 1rem;
+      font-weight: 100;
+      line-height: 100%;
+      overflow: hidden;
+      text-align: center;
+      z-index: 100;
+    }
+  }
+
+  &__header {
+    display: flex;
+    width: 100%;
+  }
+
+  &__header--fit-content {
+    cursor: default;
+    width: fit-content;
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 600;
+    overflow-wrap: break-word;
+    padding-bottom: .2rem;
+  }
+
+  &__title--input{
+    border: none;
+    outline: none;
+    background: inherit;
+  }
+
+  &__title a,
+  &__links a {
+    color: inherit;
+    outline: none;
+  }
+
+  &__body {
+    font-size: .8rem;
+  }
+
+  &__links {
+    font-size: .8rem;
+    text-align: right;
+  }
+
+  &__form--hidden {
+    display: none;
+  }
+}

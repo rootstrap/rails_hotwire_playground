@@ -7,6 +7,8 @@ gem 'rails', '~> 6.1.0'
 
 # The administration framework for Ruby on Rails.
 gem 'activeadmin', '~> 2.9'
+# Provides the capabilities for sorting and reordering a number of objects in a list.
+gem 'acts_as_list', '~> 1.0', '>= 1.0.3'
 # ActiveRecord backend for Delayed::Job
 gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.5'
 # Flexible authentication solution for Rails with Warden

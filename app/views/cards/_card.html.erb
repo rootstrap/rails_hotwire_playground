@@ -1,0 +1,12 @@
+<div class='card' id="<%= dom_id card %>" data-position='<%= card.position %>' data-new-card='false'>
+  <a class='card__delete' data-action="rack#delete"></a>
+  <div class='card__header'>
+    <div class='card__title'>
+      <%= card.name %>
+    </div>
+  </div>
+  <div class='card__links'>
+    <%= link_to 'Edit', edit_board_column_card_path(board_id: board_id, column_id: column_id, id: card.id), data: { turbo_frame: '_top' } %>
+  </div>
+    <%= render 'cards/form', card: card, klass: 'hidden', url: board_column_card_path(board_id: board_id, column_id: column_id, id: card.id) %>
+</div>
