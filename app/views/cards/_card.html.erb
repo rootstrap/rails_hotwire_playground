@@ -1,5 +1,5 @@
-<div class='card' id="<%= dom_id card %>" data-position='<%= card.position %>' data-new-card='false'>
-  <a class='card__delete' data-action="rack#delete"></a>
+<div class='card' id="<%= dom_id card %>" data-position='<%= card.position %>' data-id="<%= card.id %>" data-new-card='false'>
+  <%= link_to '', board_column_card_path(board_id: board_id, column_id: column_id, id: card.id), class: 'card__delete', method: :delete, data: {confirm: 'Are you sure?'}%>
   <div class='card__header'>
     <div class='card__title'>
       <%= card.name %>

@@ -1,40 +1,31 @@
-class BoardsController < ApplicationController
-  before_action :set_board, only: %i[show edit update destroy]
-
-  def index
-    @boards = Board.all
-  end
-
-  def show; end
-
-  def new
-    @board = Board.new
-  end
+class ColumnsController < ApplicationController
+  before_action :set_column, only: %i[update destroy]
 
   def edit; end
 
   def create
-    @board = Board.create!(board_params)
-    redirect_to @board, notice: 'Board was successfully created.'
+    column = Column.new(column_params)
+    column.save!
+    redirect_to column.board
   end
 
   def update
-    @board.update!(board_params)
-    redirect_to @board, notice: 'Board was successfully updated.'
+    @column.update!(column_params)
+    redirect_to @column.board
   end
 
   def destroy
-    @board.destroy!
-    redirect_to boards_url, notice: 'Board was successfully destroyed.'
+    @column.destroy!
+    redirect_to @column.board
   end
 
   private
 
-  def set_board
-    @board = Board.find(params[:id])
+  def set_column
+    @column = Column.find(params[:id])
   end
 
-  def board_params
-    params.require(:board).permit(:name)
+  def column_params
+    params.require(:column).permit(:name, :board_id)
   end
 end

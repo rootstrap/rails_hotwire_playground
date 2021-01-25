@@ -14,7 +14,8 @@
 #
 class Column < ApplicationRecord
   belongs_to :board
-  has_many :cards, -> { order(position: :asc) }, dependent: :destroy
+  has_many :cards, -> { order(position: :asc) }, dependent: :destroy,
+                                                 inverse_of: :column
 
   validates :name, presence: true
 end

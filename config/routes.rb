@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   resources :boards do
-    resources :columns do
-      resources :cards
+    resources :columns, only: %i[edit create update destroy] do
+      resources :cards, only: %i[edit create update destroy]
     end
   end
 end

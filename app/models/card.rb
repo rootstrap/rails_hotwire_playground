@@ -18,4 +18,6 @@ class Card < ApplicationRecord
   acts_as_list scope: :column
 
   validates :name, presence: true
+
+  delegate :board, to: :column
 end
