@@ -37,13 +37,17 @@ export default class extends Controller {
   buildPosition(event) {
     // eslint-disable-next-line no-undef
     const previousCard = $(event.item).prevAll('.card').first();
-    let index = previousCard.data('position') + 1;
-    if (previousCard.length === 0) {
-      index = 1;
-    } else if (previousCard.data('position') > Number(event.item.dataset.position) && !this.newCard(event)) {
-      index = previousCard.data('position');
+    if (previousCard.length === 0) return 1;
+
+    const index = previousCard.data('position');
+    if (
+      previousCard.data('position') > Number(event.item.dataset.position)
+      && !this.newCard(event)
+    ) {
+      return index;
     }
-    return index;
+
+    return index + 1;
   }
 
   newCard(event) {

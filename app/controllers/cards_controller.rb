@@ -4,8 +4,7 @@ class CardsController < ApplicationController
   def edit; end
 
   def create
-    card = Card.new(card_params)
-    card.save!
+    card = Card.create!(card_params)
     redirect_to board_path(card.board)
   end
 

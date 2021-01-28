@@ -4,8 +4,7 @@ class ColumnsController < ApplicationController
   def edit; end
 
   def create
-    column = Column.new(column_params)
-    column.save!
+    column = Column.create!(column_params)
     redirect_to board_path(column.board)
   end
 

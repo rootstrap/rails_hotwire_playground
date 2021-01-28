@@ -1,4 +1,6 @@
-<p id="<%= dom_id board %>">
-  <strong>Name:</strong>
-  <%= board.name %>
-</p>
+<tr id="<%= dom_id board %>">
+  <td><%= board.name %></td>
+  <td><%= link_to 'Show', board %></td>
+  <td><%= link_to 'Edit', edit_board_path(board) %></td>
+  <td><%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
