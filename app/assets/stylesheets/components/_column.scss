@@ -1,15 +1,19 @@
 .column {
   background: $gray-150;
   /* stylelint-disable property-blacklist */
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   /* stylelint-enable property-blacklist */
   display: grid;
   flex: 0 0 27rem;
   flex-direction: column;
   grid-template-rows: auto minmax(auto, 1fr) auto;
-  margin-right: .5rem;
-  max-height: calc(100vh - 11.8rem);
+  height: calc(100vh - 11.8rem);
+  margin-right: 0.5rem;
   position: relative;
+
+  &--new {
+    height: auto;
+  }
 
   &--narrow {
     max-width: 20rem;
@@ -22,16 +26,21 @@
     padding: 1rem;
   }
 
+  &__title a:hover {
+    text-decoration: underline;
+  }
+
   &__title--input {
-    border: none;
-    outline: none;
     background: inherit;
+    border: 0;
     font-size: 1rem;
+    outline: none;
   }
 
   &__title a {
     color: inherit;
     outline: none;
+    text-decoration: none;
   }
 
   &__body {
@@ -40,39 +49,35 @@
     flex: 1;
     flex-direction: column;
     overflow-y: auto;
-    padding: 0 .6rem .5rem;
+    padding: 0 0.6rem 0.5rem;
   }
 
   &__delete {
+    color: inherit;
     color: inherit;
     cursor: pointer;
     /* stylelint-disable declaration-no-important */
     outline: none !important;
     /* stylelint-enable declaration-no-important */
     position: absolute;
-    right: .5rem;
+    right: 0.5rem;
+    text-decoration: inherit;
     z-index: 100;
+  }
+
+  &__delete:hover {
     color: inherit;
     text-decoration: inherit;
+  }
 
-    &:hover {
-      color: inherit;
-      text-decoration: inherit;
-    }
-
-    &--disabled {
-      display: none;
-    }
-
-    &::after {
-      content: "x";
-      font-size: 1rem;
-      font-weight: 100;
-      line-height: 100%;
-      overflow: hidden;
-      text-align: center;
-      z-index: 100;
-    }
+  &__delete::after {
+    content: 'x';
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 100%;
+    overflow: hidden;
+    text-align: center;
+    z-index: 100;
   }
 
   &__body::-webkit-scrollbar {
@@ -81,6 +86,6 @@
 
   &__body::-webkit-scrollbar-thumb {
     background-color: $gray-200;
-    border-right: .6rem solid $gray-150;
+    border-right: 0.6rem solid $gray-150;
   }
 }

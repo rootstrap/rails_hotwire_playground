@@ -1,12 +1,11 @@
 <div class='card' id="<%= dom_id card %>" data-position='<%= card.position %>' data-id="<%= card.id %>" data-new-card='false'>
-  <%= link_to '', board_column_card_path(board_id: board_id, column_id: column_id, id: card.id), class: 'card__delete', method: :delete, data: {confirm: 'Are you sure?'}%>
-  <div class='card__header'>
-    <div class='card__title'>
-      <%= card.name %>
+    <%= link_to '', board_column_card_path(board_id: board_id, column_id: column_id, id: card.id), class: 'card__delete', method: :delete, data: {confirm: 'Are you sure?'}%>
+  <%= turbo_frame_tag dom_id card do %>
+    <div class='card__header'>
+      <div class='card__title'>
+        <%= link_to card.name, edit_board_column_card_path(board_id: board_id, column_id: column_id, id: card.id) %>
+      </div>
     </div>
-  </div>
-  <div class='card__links'>
-    <%= link_to 'Edit', edit_board_column_card_path(board_id: board_id, column_id: column_id, id: card.id), data: { turbo_frame: '_top' } %>
-  </div>
     <%= render 'cards/form', card: card, klass: 'hidden', url: board_column_card_path(board_id: board_id, column_id: column_id, id: card.id) %>
+  <% end %>
 </div>

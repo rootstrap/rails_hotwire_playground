@@ -1,22 +1,22 @@
 class CardsController < ApplicationController
-  before_action :set_card, only: %i[update destroy]
+  before_action :set_card, only: %i[edit update destroy]
 
   def edit; end
 
   def create
     card = Card.new(card_params)
     card.save!
-    redirect_to card.board
+    redirect_to board_path(card.board)
   end
 
   def update
     @card.update!(card_params)
-    redirect_to @card.board
+    redirect_to board_path(@card.board)
   end
 
   def destroy
     @card.destroy!
-    redirect_to @card.board
+    redirect_to board_path(@card.board)
   end
 
   private

@@ -1,11 +1,11 @@
-.board{
+.board {
   align-items: start;
   display: grid;
   grid-auto-columns: 20rem;
   grid-auto-flow: column;
   margin-top: 2rem;
   overflow-x: auto;
-  padding: 0 .8rem .8rem;
+  padding: 0 0.8rem 0.8rem;
 
   &::-webkit-scrollbar {
     height: 1rem;
