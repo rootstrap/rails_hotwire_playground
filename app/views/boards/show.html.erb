@@ -1,0 +1,22 @@
+<%= turbo_frame_tag "board" do %>
+  <%= @board.name %>
+  <p>
+    <%= link_to 'Edit', edit_board_path(@board) %> |
+    <%= link_to 'Back', boards_path, "data-turbo-frame": "_top" %>
+  </p>
+<% end %>
+
+<div class="d-flex">
+  <div class="board">
+    <%= render partial: 'columns/column', collection: @board.columns.includes(:cards), locals: { board_id: @board.id} %>
+    <div class='column column--new'>
+      <%= render partial: 'columns/form',
+                locals: {
+                  klass: '',
+                  column: Column.new(board_id: @board.id),
+                  url: board_columns_path(board_id: @board.id)
+                }
+      %>
+    </div>
+  </div>
+</div>

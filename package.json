@@ -15,6 +15,7 @@
     "@rails/ujs": "^6.1.0",
     "@rails/webpacker": "5.2.1",
     "arctic_admin": "^3.2.0",
+    "sortablejs": "^1.13.0",
     "stimulus": "^2.0.0"
   },
   "version": "0.1.0",

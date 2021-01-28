@@ -1,0 +1,6 @@
+<%= form_with(model: column, url: url, class: klass) do |form| %>
+  <%= form.text_field :name, placeholder: 'Write a new column...', class: 'column__title column__title--input' %>
+  <%= form.number_field :board_id, class: 'hidden' %>
+
+  <%= form.submit 'Send', class: 'column__submit hidden'%>
+<% end %>
