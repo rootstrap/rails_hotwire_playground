@@ -15,10 +15,11 @@ gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.5'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 # Adds an object-oriented layer of presentation logic to your Rails apps.
 gem 'draper', '~> 4.0', '>= 4.0.1'
-# Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
-gem 'figaro', '~> 1.2'
 # Use Hotwire to make the app feel like an SPA
 gem 'hotwire-rails', '~> 0.1.0'
+# Omniauth to login with google and other providers
+gem 'omniauth', '1.9.1' # TODO: we can use '~> 2.0' once this gets merged: https://github.com/heartcombo/devise/pull/5327/files
+gem 'omniauth-google-oauth2', '~> 0.8.1'
 # Agnostic pagination in plain ruby: it works with any framework
 gem 'pagy', '~> 3.10'
 # Use postgresql as the database for Active Record
@@ -29,6 +30,8 @@ gem 'pundit', '~> 2.1'
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+# An utility first CSS framework
+gem 'tailwindcss-rails', '~> 0.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
 # Use Redis adapter to run Action Cable in production
@@ -36,7 +39,7 @@ gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Easing the form object pattern in Rails applications.
-gem 'yaaf', '~> 0.1.1'
+gem 'yaaf', '~> 0.2.0'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -48,6 +51,8 @@ group :development, :test do
   gem 'bullet', '~> 6.1', '>= 6.1.2'
   # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
   gem 'factory_bot_rails', '~> 6.1'
+  # dotenv-rails handles environment variables in development and testing environments
+  gem 'dotenv-rails', '~> 2.7.6'
   # Combine 'pry' with 'byebug'. Adds 'step', 'next', 'finish', 'continue'
   # and 'break' commands to control execution.
   gem 'pry-byebug', '~> 3.9'
