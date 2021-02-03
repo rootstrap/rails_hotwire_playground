@@ -17,6 +17,7 @@
     "arctic_admin": "^3.2.0",
     "autoprefixer": "^10.2.3",
     "postcss": "^8.2.4",
+    "sortablejs": "^1.13.0",
     "stimulus": "^2.0.0",
     "tailwindcss": "^2.0.2"
   },
