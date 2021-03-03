@@ -4,7 +4,7 @@
 [![Code Climate](https://api.codeclimate.com/v1/badges/6b4e50e445c617d9f25d/maintainability)](https://codeclimate.com/github/rootstrap/rails_hotwire_base/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6b4e50e445c617d9f25d/test_coverage)](https://codeclimate.com/github/rootstrap/rails_hotwire_base/test_coverage)
 
-Rails + Hotwire Base is a boilerplate project for full-stack Rails apps with a modern SPA-like experience. It follows the community best practices in terms of standards, security and maintainability, integrating a variety of testing and code quality tools. It's based on Rails 6 and Ruby 2.7.
+Rails + Hotwire Base is a boilerplate project for full-stack Rails apps with a modern SPA-like experience. It follows the community best practices in terms of standards, security and maintainability, integrating a variety of testing and code quality tools. It's based on Rails 6 and Ruby 3.0.
 
 Finally, it contains a plug and play Administration console (thanks to [ActiveAdmin](https://github.com/activeadmin/activeadmin)).
 
@@ -46,6 +46,7 @@ This template comes with:
 - [Draper](https://github.com/drapergem/draper) for decorators
 - [Factory Bot](https://github.com/thoughtbot/factory_bot) for testing data
 - [Faker](https://github.com/stympy/faker) for generating test data
+- [Flipper](https://github.com/jnunemaker/flipper) for feature flags
 - [Letter Opener](https://github.com/ryanb/letter_opener) for previewing a mail in the browser
 - [Omniauth Google Oauth2](https://github.com/zquestz/omniauth-google-oauth2) for Google Sign Up/Sign in
 - [Pagy](https://github.com/ddnexus/pagy) for pagination
@@ -65,6 +66,22 @@ This template comes with:
 
 - Set your mail sender in `config/initializers/devise.rb`
 - Config your timezone accordingly in `application.rb`.
+
+# Hotwire with Redis
+
+[Turbo Streams](https://github.com/hotwired/turbo-rails#turbo-streams) uses [Action Cable](https://guides.rubyonrails.org/action_cable_overview.html) to deliver asynchronous updates to subscribers. This feature allows the user to receive live updates through websockets.
+
+Action Cable relies on `redis` as [subscription adapter](https://guides.rubyonrails.org/action_cable_overview.html#subscription-adapter) for production environment.
+
+With just a little configuration you can make it work.
+
+```yaml
+# config/cable.yml
+
+production:
+  adapter: redis
+  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+```
 
 ## Code quality
 

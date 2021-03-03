@@ -13,6 +13,7 @@ feature 'User reset password' do
       reset_password_page.submit
 
       expect(reset_password_page).to have_password_recovery_email_sent_message
+      expect(page).to have_current_path(new_user_session_path)
     end
   end
 
