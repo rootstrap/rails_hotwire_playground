@@ -1,7 +1,5 @@
 <h1 class='text-4xl mb-2 text-center'>Image Gallery</h1>
 
 <%= turbo_frame_tag 'images' do %>
-  <%= form_with(url: images_gallery_index_path, class: 'flex justify-center mb-5') do |form| %>
-    <%= render 'images', images: [] %>
-  <% end %>
+  <%= render 'images', images: [] %>
 <% end %>

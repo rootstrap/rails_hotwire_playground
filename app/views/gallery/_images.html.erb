@@ -10,7 +10,7 @@
   <div class='grid grid-cols-4 gap-2'>
     <% images.each do |image| %>
       <div class='flex justify-center items-center shadow hover:shadow-lg'>
-        <img src=<%= "https://farm#{image['farm']}.staticflickr.com/#{image['server']}/#{image['id']}_#{image['secret']}_m.jpg" %> />
+        <img src=<%= build_flickr_image_url(image['farm'], image['server'], image['id'], image['secret']) %> />
       </div>
     <% end %>
   </div>
