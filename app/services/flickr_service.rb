@@ -5,7 +5,7 @@ class FlickrService
   FLICKR_API_PATH = '/services/rest/'.freeze
   QUERY_PARAMS = {
     method: 'flickr.photos.search',
-    api_key: ENV['FLIKR_API_KEY'],
+    api_key: ENV['FLICKR_API_KEY'],
     per_page: 24,
     format: 'json',
     nojsoncallback: 1
