@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :gallery, only: %i[index] do
+    post :images, on: :collection
+  end
+
   devise_scope :user do
     authenticated :user do
       root to: 'dashboard#index', as: :authenticated_root
