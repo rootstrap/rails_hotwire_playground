@@ -9,6 +9,7 @@ import '@hotwired/turbo-rails';
 import '../channels';
 import '../controllers';
 import '../stylesheets/application.scss';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 Rails.start();
 ActiveStorage.start();

@@ -1,0 +1,17 @@
+<%= turbo_frame_tag 'images' do %>
+  <%= form_with(url: images_gallery_index_path, class: 'flex justify-center mb-5') do |form| %>
+    <%= form.text_field(:query, class: 'rounded shadow px-1') %>
+
+    <%= form.button(:submit, class: 'cursor-pointer ml-1 text-white bg-gray-800 rounded px-1') do %>
+      <i class='fas fa-search'></i> Search
+    <% end %>
+  <% end %>
+
+  <div class='grid grid-cols-4 gap-2'>
+    <% images.each do |image| %>
+      <div class='flex justify-center items-center shadow hover:shadow-lg'>
+        <img src=<%= build_flickr_image_url(image['farm'], image['server'], image['id'], image['secret']) %> />
+      </div>
+    <% end %>
+  </div>
+<%end%>
