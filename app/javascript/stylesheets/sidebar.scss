@@ -1,0 +1,30 @@
+.sidebar {
+  @apply w-52;
+  @apply bg-gradient-to-b;
+  @apply from-gray-800;
+  @apply to-blue-600;
+
+  .item {
+    @apply h-10;
+    @apply cursor-pointer;
+    @apply text-white;
+    @apply flex;
+    @apply justify-center;
+    @apply items-center;
+    @apply font-semibold;
+    @apply text-lg;
+    @apply capitalize;
+
+    &.active {
+      @apply border-l-8;
+      @apply border-rs-yellow;
+      @apply text-opacity-80;
+      @apply bg-gray-700;
+    }
+
+    &:hover {
+      @apply text-opacity-80;
+      @apply bg-gray-700;
+    }
+  }
+}

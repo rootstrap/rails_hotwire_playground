@@ -2,27 +2,32 @@
 <html>
   <head>
     <title>RailsHotwireBase</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', data: { turbo_track: :reload } %>
     <%= javascript_pack_tag 'application', data: { turbo_track: :reload } %>
     <%= yield :head %>
-    <%= stylesheet_pack_tag "application", data: { turbo_track: :reload } %>
+    <%= stylesheet_pack_tag 'application', data: { turbo_track: :reload } %>
   </head>
 
   <body>
-    <div class="flex flex-col bg-gray-50">
+    <div class='flex flex-col bg-gray-50'>
       <% if user_signed_in? %>
-        <%= render "shared/nav" %>
+        <%= render 'shared/nav' %>
       <% end %>
-      <%= render "shared/notifications" %>
-      <main class="flex flex-col justify-center items-center min-h-screen w-full">
-        <div class="max-w-7xl py-6 sm:px-6 lg:px-8">
-          <%= yield %>
-        </div>
-      </main>
+      <div class='flex'>
+        <%= render 'shared/sidebar/sidebar' %>
+        <main class='flex flex-col items-center min-h-screen w-full'>
+          <%= render 'shared/notifications' %>
+          <div class='max-w-7xl py-6 sm:px-6 lg:px-8'>
+            <%= turbo_frame_tag "main" do %>
+              <%= yield %>
+            <% end %>
+          </div>
+        </main>
+      </div>
     </div>
   </body>
 </html>

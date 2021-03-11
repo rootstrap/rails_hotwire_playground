@@ -1,0 +1,5 @@
+<div class='sidebar' data-controller='sidebar'>
+  <% sidebar_sections.each do |section| %>
+    <%= render 'shared/sidebar/sidebar_item', name: section[:name], path: section[:path], sections: sidebar_sections %>
+  <% end %>
+</div>
