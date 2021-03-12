@@ -2,6 +2,7 @@
   <div class='text-white w-3/4 self-center my-10'>
     <%= inline_svg_tag 'logo.svg' %>
   </div>
+
   <% sidebar_sections.each do |section| %>
     <%= render 'shared/sidebar/sidebar_item', name: section[:name], path: section[:path] %>
   <% end %>
