@@ -1,15 +1,13 @@
 .sidebar {
   @apply flex flex-col w-52 bg-gradient-to-b from-black to-gray-800;
 
-  .item {
+  &__item {
     @apply flex justify-center items-center h-10 cursor-pointer text-white font-semibold text-lg capitalize transition;
 
-    &.active {
+    &--active {
       @apply border-l-8 border-rs-yellow text-opacity-80 bg-gray-700;
     }
 
-    &:hover {
-      @apply text-opacity-80 bg-gray-700;
-    }
+    &:hover { @apply text-opacity-80 bg-gray-700; }
   }
 }

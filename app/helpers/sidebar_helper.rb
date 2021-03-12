@@ -1,6 +1,6 @@
 module SidebarHelper
   def menu_active?(name)
-    controller.controller_name == name ? 'active' : ''
+    controller.controller_name == name ? 'sidebar__item--active' : ''
   end
 
   def sidebar_sections
@@ -13,6 +13,6 @@ module SidebarHelper
         name: 'gallery',
         path: gallery_index_path
       }
-    ]
+    ].freeze
   end
 end
