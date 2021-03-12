@@ -3,6 +3,6 @@
     <%= inline_svg_tag 'logo.svg' %>
   </div>
   <% sidebar_sections.each do |section| %>
-    <%= render 'shared/sidebar/sidebar_item', name: section[:name], path: section[:path], sections: sidebar_sections %>
+    <%= render 'shared/sidebar/sidebar_item', name: section[:name], path: section[:path] %>
   <% end %>
 </div>
