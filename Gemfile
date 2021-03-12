@@ -25,6 +25,7 @@ gem 'flipper-ui', '~> 0.20.3'
 gem 'hotwire-rails', '~> 0.1.3'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'inline_svg', '~> 1.7.2'
 # Omniauth to login with google and other providers
 gem 'omniauth', '1.9.1' # TODO: we can use '~> 2.0' once this gets merged: https://github.com/heartcombo/devise/pull/5327/files
 gem 'omniauth-google-oauth2', '~> 0.8.1'

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
+  root to: 'boards#index'
+
   authenticate :admin_user do
     mount Flipper::UI.app(Flipper) => '/flipper'
   end
