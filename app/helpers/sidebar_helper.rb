@@ -1,5 +1,5 @@
 module SidebarHelper
-  def menu_active?(name)
+  def menu_active(name)
     controller.controller_name == name ? 'sidebar__item--active' : ''
   end
 

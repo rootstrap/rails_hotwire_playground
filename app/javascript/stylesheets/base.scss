@@ -1,5 +1,7 @@
 .link {
-  @apply font-medium;
-  @apply text-black;
-  @apply hover:text-gray-700;
+  @apply font-medium text-black hover:text-gray-700;
+}
+
+.title {
+  @apply text-4xl mb-4 text-center;
 }

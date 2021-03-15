@@ -8,7 +8,6 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
@@ -22,7 +21,7 @@ module.exports = {
       'rs-gray': {
         100: '#F1F2F5',
         200: '#B5B5B8',
-        300: '#808183'
+        300: '#808183',
       } ,
       'rs-yellow': '#EAE639',
       'rs-blue': '#0036F7',
