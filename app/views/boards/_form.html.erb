@@ -1,10 +1,10 @@
-<%= form_with(model: board) do |form| %>
-  <div class="field">
+<%= form_with(model: board, class: 'mt-5 flex flex-col') do |form| %>
+  <div>
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'shadow' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.button(:submit, class: 'button mt-5 w-1/5') do %>
+    <i class="<%= icon_classes %>"></i> <%= action %>
+  <% end %>
 <% end %>

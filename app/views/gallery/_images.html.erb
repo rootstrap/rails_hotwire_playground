@@ -2,7 +2,7 @@
   <%= form_with(url: images_gallery_index_path, class: 'flex justify-center mb-5') do |form| %>
     <%= form.text_field(:query, class: 'rounded shadow px-1') %>
 
-    <%= form.button(:submit, class: 'cursor-pointer ml-1 text-white bg-gray-800 rounded px-1') do %>
+    <%= form.button(:submit, class: 'button--secondary ml-1') do %>
       <i class='fas fa-search'></i> Search
     <% end %>
   <% end %>

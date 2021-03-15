@@ -1,9 +1,17 @@
 <%= turbo_frame_tag "board" do %>
-  <%= @board.name %>
-  <p>
-    <%= link_to 'Edit', edit_board_path(@board) %> |
-    <%= link_to 'Back', boards_path, "data-turbo-frame": "_top" %>
-  </p>
+  <h1 class='title'><%= @board.name %></h1>
+
+  <div class='divide-x-2 divide-gray-600'>
+    <%= link_to boards_path, class: 'link', "data-turbo-frame": "_top" do %>
+      <i class='fas fa-chevron-left'></i>
+      Back
+    <% end %>
+
+    <%= link_to edit_board_path(@board), class: 'link' do %>
+      <i class='fas fa-edit ml-2'></i>
+      Edit
+    <% end %>
+  </div>
 <% end %>
 
 <div class="d-flex">
