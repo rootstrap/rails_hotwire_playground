@@ -1,5 +1,8 @@
-<h1>New Board</h1>
+<h1 class='title'>New Board</h1>
 
-<%= render 'form', board: @board %>
+<%= link_to boards_path, class: 'link' do %>
+  <i class="fas fa-chevron-left"></i>
+  Back
+<% end %>
 
-<%= link_to 'Back', boards_path %>
+<%= render 'form', board: @board, action: 'Create', icon_classes: 'fas fa-plus-square' %>
