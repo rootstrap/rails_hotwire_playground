@@ -18,7 +18,6 @@ class ButtonComponent < ViewComponent::Base
     %w[
       group
       relative
-      w-full
       flex
       justify-center
       py-2

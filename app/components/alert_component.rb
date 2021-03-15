@@ -25,7 +25,8 @@ class AlertComponent < ViewComponent::Base
       'm-1',
       'px-4',
       'py-3',
-      'rounded'
+      'rounded',
+      'transition'
     ]
   end
 
