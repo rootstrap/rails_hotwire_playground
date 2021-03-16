@@ -1,8 +1,17 @@
-<h1>Editing Board</h1>
+<h1 class='title'>Editing Board</h1>
 
-<%= turbo_frame_tag "board" do %>
-  <%= render 'form', board: @board %>
+<div class='divide-x-2 divide-gray-600'>
+  <%= link_to boards_path, class: 'link' do %>
+    <i class='fas fa-chevron-left'></i>
+    Back
+  <% end %>
+
+  <%= link_to @board, class: 'link' do %>
+    <i class='fas fa-external-link-alt ml-2'></i>
+    Show
+  <% end %>
+</div>
+
+<%= turbo_frame_tag 'board' do %>
+  <%= render 'form', board: @board, action: 'Edit', icon_classes: 'fas fa-edit' %>
 <% end %>
-
-<%= link_to 'Show', @board %> |
-<%= link_to 'Back', boards_path %>

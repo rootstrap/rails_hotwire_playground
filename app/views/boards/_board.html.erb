@@ -1,6 +1,18 @@
-<tr id="<%= dom_id board %>">
-  <td><%= board.name %></td>
-  <td><%= link_to 'Show', board %></td>
-  <td><%= link_to 'Edit', edit_board_path(board) %></td>
-  <td><%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-</tr>
+<div class='flex flex-col border px-4 py-2 bg-rs-gray-100 rounded shadow xl:w-52 xl:h-28 justify-self-center'
+     id="<%= dom_id board %>">
+  <h5 class='text-lg'>
+    <%= link_to board, class: 'link' do %>
+      <%= board.name %>
+    <% end %>
+  </h5>
+
+  <div class='flex h-full items-end justify-between'>
+    <%= link_to edit_board_path(board) do %>
+      <i class='fas fa-edit'></i>
+    <% end %>
+
+    <%= link_to board, method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <i class='fas fa-trash'></i>
+    <% end %>
+  </div>
+</div>

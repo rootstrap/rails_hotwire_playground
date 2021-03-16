@@ -1,5 +1,11 @@
-.link {
-  @apply font-medium;
-  @apply text-black;
-  @apply hover:text-gray-700;
+.link { @apply font-medium text-black hover:text-gray-700 hover:underline; }
+
+.title { @apply text-4xl mb-4 text-center; }
+
+.button {
+  @apply cursor-pointer py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-black hover:bg-gray-700;
+
+  &--secondary {
+    @apply cursor-pointer border border-transparent text-white bg-black rounded px-1 hover:bg-gray-800
+  }
 }
