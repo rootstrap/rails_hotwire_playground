@@ -6,7 +6,7 @@ class GalleryController < ApplicationController
 
     if params[:query].present?
       results = FlickrService.new.search(params[:query])
-      
+
       images = results ? results['photos']['photo'] : []
     end
 
