@@ -15,7 +15,7 @@ class BoardsController < ApplicationController
 
   def create
     @board = Board.create!(board_params)
-    redirect_to @board, notice: 'Board was successfully created.', status: :created
+    redirect_to @board, notice: 'Board was successfully created.'
   rescue ActiveRecord::RecordInvalid => e
     flash[:error] = e.message
     redirect_to new_board_path
