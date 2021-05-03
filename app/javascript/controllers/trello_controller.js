@@ -26,7 +26,7 @@ export default class extends Controller {
       formElement.querySelector('#js-column-id').value = event.item.parentElement.dataset.trelloColumnIdValue;
     }
 
-    formElement.querySelector("#js-name-value").value = event.item.innerText;
+    formElement.querySelector('#js-name-value').value = event.item.innerText;
     formElement.querySelector('#js-position-value').value = this.buildPosition(event);
 
     const submit = formElement.querySelector('.js-card__submit');
