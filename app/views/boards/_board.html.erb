@@ -1,13 +1,13 @@
 <div class='flex flex-col border px-4 py-2 bg-rs-gray-100 rounded shadow xl:w-52 xl:h-28 justify-self-center'
      id="<%= dom_id board %>">
   <h5 class='text-lg'>
-    <%= link_to board, class: 'link' do %>
+    <%= link_to board, class: 'link', "data-turbo-frame": "_top" do %>
       <%= board.name %>
     <% end %>
   </h5>
 
   <div class='flex h-full items-end justify-between'>
-    <%= link_to edit_board_path(board) do %>
+    <%= link_to edit_board_path(board), "data-turbo-frame": "_top" do %>
       <i class='fas fa-edit'></i>
     <% end %>
 
