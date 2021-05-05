@@ -15,7 +15,7 @@ export default class extends Controller {
       this.userMenuTarget.classList.remove('transform', 'opacity-100', 'scale-100');
       this.userMenuTarget.classList.add('transform', 'opacity-0', 'scale-95');
     }
-  };
+  }
 
   toggleMobileMenuVisibility() {
     if (this.mobileOpenMenuIconTarget.classList.contains('block')) {
@@ -28,4 +28,4 @@ export default class extends Controller {
       this.mobileCloseMenuIconTarget.classList.replace('block', 'hidden');
     }
   }
-};
+}
