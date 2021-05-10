@@ -7,7 +7,7 @@
       Back
     <% end %>
 
-    <%= link_to edit_board_path(@board), class: 'link' do %>
+    <%= link_to edit_board_path(@board), class: 'link', "data-turbo-frame": "_top" do %>
       <i class='fas fa-edit ml-2'></i>
       Edit
     <% end %>

@@ -2,7 +2,7 @@ class BoardsController < ApplicationController
   before_action :set_board, only: %i[show edit update destroy]
 
   def index
-    @boards = Board.all
+    @boards = Board.order(created_at: :desc)
   end
 
   def show; end

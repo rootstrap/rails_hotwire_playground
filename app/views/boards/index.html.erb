@@ -1,8 +1,12 @@
 <h1 class='title'>Boards</h1>
 
-<div class='grid grid-cols-2 md:grid-cols-4 gap-4 mb-4'>
-  <%= render @boards %>
-</div>
+<%= turbo_stream_from "boards" %>
+
+<%= turbo_frame_tag "boards" do %>
+  <div class='grid grid-cols-2 md:grid-cols-4 gap-4 mb-4'>
+    <%= render @boards %>
+  </div>
+<%end%>
 
 <%= link_to new_board_path, class: 'w-full flex justify-center' do %>
   <%= render(ButtonComponent.new(text: 'New Board', css_class: 'w-1/4')) %>
