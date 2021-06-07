@@ -12,6 +12,10 @@ module SidebarHelper
       {
         name: 'gallery',
         path: gallery_index_path
+      },
+      {
+        name: 'posts',
+        path: posts_path
       }
     ].freeze
   end
