@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     post :images, on: :collection
   end
 
-  resources :posts
+  resources :posts, except: :destroy
 
   devise_scope :user do
     authenticated :user do
