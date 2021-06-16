@@ -1,29 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<h2>Posts</h2>
 
 <%= link_to 'New Post', new_post_path %>
+
+<%= turbo_frame_tag dom_id(@posts.first) do %>
+  <div data-controller="infinite-scroll" data-infinite-scroll-path-value="<%= posts_path(page: @page_number) %>" data-infinite-scroll-target="entry">
+    <% @posts.each do |post| %>
+      <p>
+        <strong>Title:</strong>
+        <%= post.title %>
+      </p>
+
+      <p>
+        <strong>Body:</strong>
+        <%= post.body %>
+      </p>
+
+      <%= link_to 'View', post_path(post), data: { turbo_frame: "_top" } %> |
+      <%= link_to 'Edit', edit_post_path(post), data: { turbo_frame: "_top" } %> |
+      <%= link_to 'Destroy', post, method: :delete, data: { turbo_frame: "_top", confirm: 'Are you sure?' } %> |
+      <%= link_to 'Back', posts_path(page: [@page_number - 1, 1].max), data: { turbo_frame: "_top" } %>
+    <% end %>
+  </div>
+  <%= turbo_frame_tag dom_id(@next_posts.first), loading: :lazy, src: posts_path(page: @page_number + 1) if @next_posts.present? %>
+<% end %>

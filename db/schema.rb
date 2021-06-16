@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2021_05_24_222838) do
     t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["title"], name: "index_posts_on_title"
   end
 
   create_table "users", force: :cascade do |t|

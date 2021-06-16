@@ -8,6 +8,10 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+# Indexes
+#
+#  index_posts_on_title  (title)
+#
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do

@@ -1,19 +1,14 @@
 class PostsController < ApplicationController
+  include Pagy::Backend
+
   def index
-    first_post = Post.first
-    if first_post
-      redirect_to post_path(id: first_post.id)
-    else
-      redirect_to new_post_path
-    end
+    @page_number = params[:page].present? ? params[:page].to_i : 1
+    @pagy_posts, @posts = pagy(Post.order(:id), page: @page_number, items: 3)
+    @pagy_next_posts, @next_posts = pagy(Post.order(:id), page: @page_number + 1, items: 3)
   end
 
   def show
     @post = Post.find(params[:id])
-    @next_post = @post.next
-  rescue ActiveRecord::RecordNotFound => e
-    flash[:error] = e.message
-    redirect_to new_post_path
   end
 
   def new
@@ -34,6 +29,12 @@ class PostsController < ApplicationController
 
   def update
     Post.find(params[:id]).update!(post_params)
+  end
+
+  def destroy
+    Post.find(params[:id]).destroy!
+
+    redirect_to posts_path
   end
 
   private
