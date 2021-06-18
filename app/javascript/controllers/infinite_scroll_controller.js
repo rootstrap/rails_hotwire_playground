@@ -25,7 +25,7 @@ export default class extends Controller {
     handleIntersect(entries) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          history.replaceState(history.state, '', this.pathValue);
+          window.history.replaceState(window.history.state, '', this.pathValue);
         }
       });
     }

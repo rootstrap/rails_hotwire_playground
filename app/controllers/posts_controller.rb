@@ -20,11 +20,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create!(post_params)
-    redirect_to @post, notice: 'Post was successfully created.'
-  rescue ActiveRecord::RecordInvalid => e
-    flash[:error] = e.message
-    redirect_to new_post_path
+    @post = Post.new(post_params)
+
+    if @post.save
+      redirect_to @post, notice: 'Post was successfully created.'
+    else
+      flash[:error] = e.message
+      redirect_to new_post_path
+    end
   end
 
   def update
