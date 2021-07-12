@@ -13,7 +13,5 @@
 #  index_posts_on_title  (title)
 #
 class Post < ApplicationRecord
-  include Navigable
-
   validates :title, :body, presence: true
 end

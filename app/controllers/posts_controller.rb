@@ -31,7 +31,13 @@ class PostsController < ApplicationController
   end
 
   def update
-    Post.find(params[:id]).update!(post_params)
+    @post = Post.find(params[:id])
+
+    if @post.update(post_params)
+      redirect_to @post, notice: 'Post was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
