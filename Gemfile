@@ -58,6 +58,8 @@ group :development, :test do
   gem 'bullet', '~> 6.1', '>= 6.1.2'
   # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
   gem 'factory_bot_rails', '~> 6.1'
+  # To easily generate fake data
+  gem 'faker', '~> 2.15', '>= 2.15.1'
   # dotenv-rails handles environment variables in development and testing environments
   gem 'dotenv-rails', '~> 2.7.6'
   # Combine 'pry' with 'byebug'. Adds 'step', 'next', 'finish', 'continue'
@@ -104,8 +106,6 @@ end
 group :test do
   # Adds support for Capybara system testing
   gem 'capybara', '>= 3.26'
-  # To easily generate fake data
-  gem 'faker', '~> 2.15', '>= 2.15.1'
   # Adds support for selenium driver
   gem 'selenium-webdriver'
   # Provides RSpec- and Minitest-compatible one-liners to test common Rails functionality

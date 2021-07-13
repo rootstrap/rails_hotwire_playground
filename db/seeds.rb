@@ -10,4 +10,8 @@
 if Rails.env.development?
   AdminUser.create!(email: 'admin@example.com', password: 'password',
                     password_confirmation: 'password')
+
+  10.times do |i|
+    Post.create(title: "Post #{i + 1}", body: Faker::Lorem.paragraph(sentence_count: 200))
+  end
 end

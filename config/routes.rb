@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     post :images, on: :collection
   end
 
+  resources :posts, only: %i[new create show edit update index destroy]
+
   devise_scope :user do
     authenticated :user do
       root to: 'dashboard#index', as: :authenticated_root
