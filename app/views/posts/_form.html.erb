@@ -5,6 +5,6 @@
   <%= render(FieldComponent.new(:body, form: form, placeholder: 'Body', required: true)) %>
 
   <div class='actions'>
-    <%= form.submit %>
+    <%= render(ButtonComponent.new(text: "#{action_name} Post")) %>
   </div>
 <% end %>
