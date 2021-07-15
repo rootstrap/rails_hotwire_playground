@@ -1,6 +1,6 @@
-.link { @apply font-medium text-black hover:text-gray-700 hover:underline; }
+.link { @apply font-medium text-black hover:text-gray-700 hover:underline font-semibold; }
 
-.title { @apply text-4xl mb-4 text-center; }
+.title { @apply text-4xl mb-4 text-center font-semibold; }
 
 .button {
   @apply cursor-pointer py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-black hover:bg-gray-700;

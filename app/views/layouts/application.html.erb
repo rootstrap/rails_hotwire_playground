@@ -19,11 +19,12 @@
       <% end %>
       <div class='flex'>
         <%= render 'shared/sidebar/sidebar' %>
-        <main class='flex flex-col items-center min-h-screen w-full'>
+        <main class='flex flex-col items-center min-h-screen w-full overflow-hidden'>
           <%= render 'shared/notifications' %>
-          <div class='w-3/4 py-6 sm:px-6 lg:px-8'>
+          <div class='w-3/4 py-6 sm:px-6 lg:px-8 h-full'>
             <%= yield %>
           </div>
+          <%= render 'shared/footer' %>
         </main>
       </div>
     </div>

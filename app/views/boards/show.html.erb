@@ -14,7 +14,7 @@
   </div>
 <% end %>
 
-<div class="d-flex">
+<div class="flex">
   <div class="board">
     <%= render partial: 'columns/column', collection: @board.columns.includes(:cards), locals: { board_id: @board.id} %>
     <div class='column column--new'>
