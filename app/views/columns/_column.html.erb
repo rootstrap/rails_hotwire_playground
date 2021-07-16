@@ -19,7 +19,7 @@
     </div>
     <%= render partial: 'cards/form',
                locals: {
-                  klass: 'p-1',
+                  klass: 'p-4',
                   card: Card.new(column_id: column.id),
                   url: board_column_cards_path(board_id: board_id, column_id: column.id)
                }

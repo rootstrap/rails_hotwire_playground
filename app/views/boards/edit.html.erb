@@ -12,6 +12,6 @@
   <% end %>
 </div>
 
-<%= turbo_frame_tag 'board' do %>
+<div class='flex justify-center mt-5'>
   <%= render 'form', board: @board, action: 'Edit', icon_classes: 'fas fa-edit' %>
-<% end %>
+</div>

@@ -2,6 +2,7 @@ import { Controller } from 'stimulus';
 
 export default class extends Controller {
     static targets = ['entry']
+
     static values = { path: String }
 
     connect() {

@@ -1,6 +1,8 @@
 <div class='sidebar'>
   <div class='text-white w-3/4 self-center my-10'>
-    <%= inline_svg_tag 'logo.svg' %>
+    <%= link_to 'https://rootstrap.com', target: '_blank' do %>
+      <%= inline_svg_tag 'logo.svg' %>
+    <% end %>
   </div>
 
   <% sidebar_sections.each do |section| %>
