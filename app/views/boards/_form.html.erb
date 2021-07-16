@@ -1,6 +1,5 @@
 <%= form_with(model: board, class: 'mt-5 flex flex-col w-2/4') do |form| %>
   <%= render(FieldComponent.new(:name, form: form, placeholder: 'Name', required: true)) %>
-  <%= form.button(:submit, class: 'button mt-5') do %>
-    <i class="<%= icon_classes %>"></i> <%= action %>
+  <%= render(ButtonComponent.new(text: action, css_class: 'button mt-5')) do %>
   <% end %>
 <% end %>
