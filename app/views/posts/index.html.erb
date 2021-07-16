@@ -1,27 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Posts</h2>
+<h2 class='title'>Posts</h2>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to new_post_path, class: 'w-full flex' do %>
+  <%= render(ButtonComponent.new(text: 'New Post')) %>
+<% end %>
 
-<%= turbo_frame_tag dom_id(@posts.first) do %>
-  <div data-controller="infinite-scroll" data-infinite-scroll-path-value="<%= posts_path(page: @page_number) %>" data-infinite-scroll-target="entry">
-    <% @posts.each do |post| %>
-      <p>
-        <strong>Title:</strong>
-        <%= post.title %>
-      </p>
+<hr class='my-5'>
 
-      <p>
-        <strong>Body:</strong>
-        <%= post.body %>
-      </p>
+<% if @posts.any? %>
+  <%= turbo_frame_tag dom_id(@posts.first) do %>
+    <div data-controller="infinite-scroll" data-infinite-scroll-path-value="<%= posts_path(page: @page_number) %>" data-infinite-scroll-target="entry">
+      <% @posts.each do |post| %>
+        <div class='mt-5'>
+          <%= render post %>
 
-      <%= link_to 'View', post_path(post), data: { turbo_frame: "_top" } %> |
-      <%= link_to 'Edit', edit_post_path(post), data: { turbo_frame: "_top" } %> |
-      <%= link_to 'Destroy', post, method: :delete, data: { turbo_frame: "_top", confirm: 'Are you sure?' } %> |
-      <%= link_to 'Back', posts_path(page: [@page_number - 1, 1].max), data: { turbo_frame: "_top" } %>
-    <% end %>
-  </div>
-  <%= turbo_frame_tag dom_id(@next_posts.first), loading: :lazy, src: posts_path(page: @page_number + 1) if @next_posts.present? %>
+          <div class='flex flex-row'>
+            <%= link_to post_path(post), data: { turbo_frame: "_top" } do %>
+              <%= render(ButtonComponent.new(text: 'View', css_class: 'mt-2 mb-5 w-16')) %>
+            <% end %>
+            <%= link_to edit_post_path(post), data: { turbo_frame: "_top" } do %>
+              <%= render(ButtonComponent.new(text: 'Edit', css_class: 'mt-2 mb-5 ml-2 w-16')) %>
+            <% end %>
+            <%= link_to post_path(post), method: :delete, data: { turbo_frame: "_top", confirm: 'Are you sure?' } do %>
+              <%= render(ButtonComponent.new(text: 'Destroy', css_class: 'mt-2 mb-5 ml-2 w-16')) %>
+            <% end %>
+            <%= link_to posts_path(page: [@page_number - 1, 1].max), data: { turbo_frame: "_top" } do %>
+              <%= render(ButtonComponent.new(text: 'Back', css_class: 'mt-2 mb-5 ml-2 w-16')) %>
+            <% end %>
+          </div>
+        </div>
+
+        <hr class='my-1'>
+      <% end %>
+    </div>
+    <%= turbo_frame_tag dom_id(@next_posts.first), loading: :lazy, src: posts_path(page: @page_number + 1) if @next_posts.present? %>
+  <% end %>
 <% end %>
